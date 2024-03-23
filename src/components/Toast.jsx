@@ -8,8 +8,8 @@ export default function Toast({ newToast, deleteToast }) {
   if (newToast.variant === "warning") {
     toastBgColor = "bg-yellow-200";
   }
-  if (newToast.variant === "succes") {
-    toastBgColor = "bg-green-200";
+  if (newToast.variant === "success") {
+    toastBgColor = "bg-lime-200";
   }
   if (newToast.variant === "error") {
     toastBgColor = "bg-red-200";
