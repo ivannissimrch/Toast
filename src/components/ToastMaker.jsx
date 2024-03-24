@@ -35,11 +35,12 @@ export default function ToastMaker({ createToast }) {
   }
 
   return (
-    <section className="bg-slate-500 w-1/2 p-5 m-6 ">
-      <form onSubmit={handleSubmit}>
-        <label>Enter toast message </label>
-        <textarea
-          className="w-full"
+    <section className="bg-slate-500 w-screen md:w-1/2 p-8 md:ml-4 flex md:my-4">
+      <form onSubmit={handleSubmit} className="w-full">
+        <h2 className="text-2xl">Enter toast message </h2>
+        <input
+          type="text"
+          className="w-full h-12"
           onChange={handleMessageChange}
           value={newToastMessage}
           ref={messageInputRef}
@@ -63,7 +64,7 @@ export default function ToastMaker({ createToast }) {
           })}
         </div>
         <button
-          className="bg-blue-400 p-2 rounded
+          className="bg-blue-400 p-2 rounded w-full my-2
         "
           type="submit"
         >

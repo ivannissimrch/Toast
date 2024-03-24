@@ -23,9 +23,9 @@ export default function Toast({ newToast, deleteToast }) {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -50 }}
       transition={{ duration: 0.5 }}
-      className={` h-20 p-4 m-4 flex justify-between ${toastBgColor}`}
+      className={` min-h-20 p-4 my-4 md:my-4 flex justify-between ${toastBgColor}`}
     >
-      <p className="flex flex-col">{newToast.message}</p>
+      <p className="flex flex-grow-1 w-full text-start">{newToast.message}</p>
       <IoCloseCircleOutline size={20} onClick={() => deleteToast(newToast)} />
     </motion.li>
   );

@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion";
 
 export default function ToastTray({ toastBatch, deleteToast }) {
   return (
-    <ul className="w-1/2 p-5 m-6">
+    <ul className="w-screen md:w-1/2 px-4">
       <AnimatePresence>
         {toastBatch.map((newToast) => (
           <Toast

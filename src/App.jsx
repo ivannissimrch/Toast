@@ -17,7 +17,7 @@ function App() {
   }
 
   return (
-    <main className="flex items-center justify-center h-screen w-screen bg-blue-100">
+    <main className="flex flex-col md:flex-row md:items-start items-center justify-flex-start min-h-screen w-screen bg-blue-100 p-4">
       <ToastMaker createToast={createToast} />
       <ToastTray toastBatch={toastBatch} deleteToast={deleteToast} />
     </main>
