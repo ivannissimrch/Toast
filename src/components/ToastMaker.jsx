@@ -1,9 +1,8 @@
-import { ToastContext } from "./ToastContext";
-import { useContext } from "react";
+import {useToastContext} from "./ToastContext.jsx";
 import { useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 export default function ToastMaker() {
-  const { createToast } = useContext(ToastContext);
+  const { createToast } = useToastContext();
   const [newToastMessage, setNewToastMessage] = useState("");
   const [toastVariantSelected, setToastVariantSelected] = useState("notice");
   const toastVariantsValues = [

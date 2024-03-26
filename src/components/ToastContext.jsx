@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
-import { createContext, useState } from "react";
+import PropTypes from "prop-types";
+import {createContext, useContext, useState} from "react";
 
 export const ToastContext = createContext({});
 
@@ -15,15 +15,29 @@ export function ToastContextProvider({ children }) {
       })
     );
   }
+
+  function deleteAllToasts(){
+      setToastBatch([])
+  }
   return (
     <ToastContext.Provider
       value={{
         toastBatch,
         createToast,
         deleteToast,
+          deleteAllToasts
       }}
     >
       {children}
     </ToastContext.Provider>
   );
 }
+
+export function useToastContext(){
+    const context = useContext(ToastContext)
+    return context;
+}
+
+ToastContextProvider.propTypes = {
+    children: PropTypes.object.isRequired,
+};
