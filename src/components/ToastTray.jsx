@@ -1,8 +1,10 @@
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import { ToastContext } from "./ToastContext";
 import Toast from "./Toast";
 import { AnimatePresence } from "framer-motion";
 
-export default function ToastTray({ toastBatch, deleteToast }) {
+export default function ToastTray() {
+  const { toastBatch, deleteToast } = useContext(ToastContext);
   return (
     <ul className="w-screen md:w-1/2 px-4">
       <AnimatePresence>
@@ -17,8 +19,3 @@ export default function ToastTray({ toastBatch, deleteToast }) {
     </ul>
   );
 }
-
-ToastTray.propTypes = {
-  toastBatch: PropTypes.arrayOf(PropTypes.object).isRequired,
-  deleteToast: PropTypes.func.isRequired,
-};

@@ -1,7 +1,9 @@
-import PropTypes from "prop-types";
+import { ToastContext } from "./ToastContext";
+import { useContext } from "react";
 import { useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-export default function ToastMaker({ createToast }) {
+export default function ToastMaker() {
+  const { createToast } = useContext(ToastContext);
   const [newToastMessage, setNewToastMessage] = useState("");
   const [toastVariantSelected, setToastVariantSelected] = useState("notice");
   const toastVariantsValues = [
@@ -74,7 +76,3 @@ export default function ToastMaker({ createToast }) {
     </section>
   );
 }
-
-ToastMaker.propTypes = {
-  createToast: PropTypes.func.isRequired,
-};
