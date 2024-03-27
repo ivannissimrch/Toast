@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import {createContext, useContext, useState} from "react";
+import { createContext, useContext, useState } from "react";
 
 export const ToastContext = createContext({});
 
@@ -16,8 +16,8 @@ export function ToastContextProvider({ children }) {
     );
   }
 
-  function deleteAllToasts(){
-      setToastBatch([])
+  function deleteAllToast() {
+    setToastBatch([]);
   }
   return (
     <ToastContext.Provider
@@ -25,7 +25,7 @@ export function ToastContextProvider({ children }) {
         toastBatch,
         createToast,
         deleteToast,
-          deleteAllToasts
+        deleteAllToast,
       }}
     >
       {children}
@@ -33,11 +33,11 @@ export function ToastContextProvider({ children }) {
   );
 }
 
-export function useToastContext(){
-    const context = useContext(ToastContext)
-    return context;
+export function useToastContext() {
+  const context = useContext(ToastContext);
+  return context;
 }
 
 ToastContextProvider.propTypes = {
-    children: PropTypes.object.isRequired,
+  children: PropTypes.object.isRequired,
 };
