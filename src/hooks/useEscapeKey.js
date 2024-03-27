@@ -9,5 +9,7 @@ export default function useEscapeKey(actionAfterEscKeypress) {
       }
     }
     document.addEventListener("keydown", handleKeyDown);
+
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [actionAfterEscKeypress]);
 }
