@@ -6,7 +6,12 @@ export default function ToastTray() {
   const { toastBatch, deleteToast } = useToastContext();
 
   return (
-    <ul className="w-screen md:w-1/2 px-4">
+    <ul
+      className="w-screen md:w-1/2 px-4"
+      role="region"
+      aria-live="polite"
+      aria-label="Notification"
+    >
       <AnimatePresence>
         {toastBatch.map((newToast) => (
           <Toast
