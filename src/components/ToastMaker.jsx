@@ -1,16 +1,12 @@
-import {useToastContext} from "./ToastContext.jsx";
+import { useToastContext } from "./ToastContext.jsx";
 import { useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import RadioGroup from "./RadioGroup.jsx";
+
 export default function ToastMaker() {
   const { createToast } = useToastContext();
   const [newToastMessage, setNewToastMessage] = useState("");
   const [toastVariantSelected, setToastVariantSelected] = useState("notice");
-  const toastVariantsValues = [
-    { value: "notice", label: "Notice" },
-    { value: "warning", label: "Warning" },
-    { value: "success", label: "Success" },
-    { value: "error", label: "Error" },
-  ];
   const messageInputRef = useRef();
 
   function handleMessageChange(event) {
@@ -48,22 +44,10 @@ export default function ToastMaker() {
           autoFocus
         />
         <label>Variant</label>
-        <div className="flex justify-between">
-          {toastVariantsValues.map(({ value, label }) => {
-            return (
-              <label key={value}>
-                <input
-                  type="radio"
-                  name="radioGroup"
-                  checked={toastVariantSelected === value}
-                  onChange={handleVariantSelectedChange}
-                  value={value}
-                />
-                {label}
-              </label>
-            );
-          })}
-        </div>
+        <RadioGroup
+          toastVariantSelected={toastVariantSelected}
+          handleVariantSelectedChange={handleVariantSelectedChange}
+        />
         <button
           className="bg-blue-400 p-2 rounded w-full my-2
         "
