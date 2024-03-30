@@ -15,8 +15,8 @@ export default function ToastMaker() {
   }
 
   function handleVariantSelectedChange(event) {
-    const varianSelectedValue = event.target.value;
-    setToastVariantSelected(varianSelectedValue);
+    const variantSelectedValue = event.target.value;
+    setToastVariantSelected(variantSelectedValue);
   }
 
   function handleSubmit(event) {
