@@ -18,12 +18,9 @@ export default function Toast({ newToast, deleteToast }) {
       <p className="flex flex-grow-1 w-full text-start ml-2">
         {newToast.message}
       </p>
-      <IoClose
-        size={20}
-        onClick={() => deleteToast(newToast)}
-        aria-label="Dismiss message"
-        aria-live="off"
-      />
+      <button onClick={() => deleteToast(newToast)}>
+        <IoClose size={20} aria-label="Dismiss message" aria-live="off" />
+      </button>
     </motion.li>
   );
 }
