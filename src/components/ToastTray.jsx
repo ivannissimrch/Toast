@@ -1,9 +1,11 @@
 import { useToastContext } from "./ToastContext";
 import Toast from "./Toast";
 import { AnimatePresence } from "framer-motion";
+import useEscapeKey from "../hooks/useEscapeKey.js";
 
 export default function ToastTray() {
-  const { toastBatch, deleteToast } = useToastContext();
+  const { toastBatch, deleteToast, deleteAllToast } = useToastContext();
+  useEscapeKey(deleteAllToast);
 
   return (
     <ul
