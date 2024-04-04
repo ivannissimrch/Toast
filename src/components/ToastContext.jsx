@@ -42,5 +42,5 @@ export function useToastContext() {
 }
 
 ToastContextProvider.propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.node,
 };
