@@ -1,6 +1,5 @@
 import { useToastContext } from "./ToastContext.jsx";
 import { useRef, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import RadioGroup from "./RadioGroup.jsx";
 
 export default function ToastMaker() {
@@ -23,7 +22,6 @@ export default function ToastMaker() {
     event.preventDefault();
     if (newToastMessage === "") return;
     createToast({
-      id: uuidv4(),
       variant: toastVariantSelected,
       message: newToastMessage,
     });
