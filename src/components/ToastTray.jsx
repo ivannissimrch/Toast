@@ -1,6 +1,5 @@
 import { useToastContext } from "./ToastContext";
 import Toast from "./Toast";
-import { AnimatePresence } from "framer-motion";
 import useEscapeKey from "../hooks/useEscapeKey.js";
 
 export default function ToastTray() {
@@ -14,15 +13,13 @@ export default function ToastTray() {
       aria-live="polite"
       aria-label="Notification"
     >
-      <AnimatePresence>
-        {toastBatch.map((newToast) => (
-          <Toast
-            key={newToast.id}
-            newToast={newToast}
-            deleteToast={deleteToast}
-          />
-        ))}
-      </AnimatePresence>
+      {toastBatch.map((newToast) => (
+        <Toast
+          key={newToast.id}
+          newToast={newToast}
+          deleteToast={deleteToast}
+        />
+      ))}
     </ul>
   );
 }

@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import { createContext, useContext, useState } from "react";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 export const ToastContext = createContext({});
 
 export function ToastContextProvider({ children }) {
   const [toastBatch, setToastBatch] = useState([]);
   function createToast(newToast) {
-      const newToastWithId = {...newToast, id:uuidv4() }
+    const newToastWithId = { ...newToast, id: uuidv4() };
 
     setToastBatch((prevBatch) => [...prevBatch, newToastWithId]);
   }
