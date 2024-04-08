@@ -9,15 +9,11 @@ export default function Toast({ newToast, deleteToast }) {
   );
 
   function addToastAnimation() {
-    setTimeout(() => {
-      setAnimationClass(
-        "translate-x-0 opacity-100 transition-all duration-500"
-      );
-    }, 100);
+    setAnimationClass("translate-x-0 opacity-100 ");
   }
 
   function deleteToastAnimation(newToast) {
-    setAnimationClass("opacity-50 transition-all duration-500");
+    setAnimationClass("opacity-50 ");
     setTimeout(() => {
       deleteToast(newToast);
     }, 500);
@@ -27,7 +23,7 @@ export default function Toast({ newToast, deleteToast }) {
 
   return (
     <li
-      className={` min-h-20 p-4 my-4 md:my-4 flex justify-between items-center rounded-lg ${toastBgColor} ${animationClass}`}
+      className={` min-h-20 p-4 my-4 md:my-4 flex justify-between items-center rounded-lg ${toastBgColor} ${animationClass} transition-all duration-500`}
     >
       <div className="hidden">{newToast.variant}</div>
       {toastIcon}
